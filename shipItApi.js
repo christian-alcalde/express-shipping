@@ -5,7 +5,6 @@ const SHIPIT_API_KEY = "SUPER-DUPER-SECRET";
 
 const axios = require("axios");
 
-
 /** Ship a single product through the shipit API.
  *
  * Returns shipId from shipit.
@@ -22,11 +21,11 @@ async function shipProduct({ productId, name, addr, zip }) {
       name: name,
       addr: addr,
       zip: zip,
-      key: SHIPIT_API_KEY
+      key: SHIPIT_API_KEY,
     },
   });
 
   return resp.data.receipt.shipId;
 }
 
-module.exports = { shipProduct };
+module.exports = { shipProduct, SHIPIT_API_KEY, SHIPIT_SHIP_URL };
